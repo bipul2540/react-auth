@@ -1,31 +1,22 @@
 import nodemailer from "nodemailer";
 
-export const sendEmail = ({ to, from, subject, text }) => {
+export const sendEmail = (msg) => {
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: "robert.david2540@gmail.com",
-      pass: "Robertdavid@2540",
+      pass: "cwwmecgtyaxcbvlh",
     },
   });
 
-  const msg = { to, from, subject, text };
-  console.log(to);
+  // const msg = { to, from, subject, text };
+  console.log(msg);
 
-  //   transporter.verify((err, success) => {
-  //     if (err) {
-  //       console.log(err);
-  //     } else {
-  //       console.log("ready for message");
-  //       console.log(success);
-  //     }
-  //   });
-
-  transporter.sendMail(msg, (err, info) => {
+  transporter.sendMail(msg, (err, res) => {
     if (err) {
       console.log(err);
     } else {
-      console.log(info);
+      console.log("success");
     }
   });
 };

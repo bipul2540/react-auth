@@ -8,7 +8,7 @@ import axios from "axios";
 export const UserInfoPage = () => {
   const user = useUser();
   const [token, setToken] = useToken();
-  const { id, email, info } = user;
+  const { id, email, isVerified, info } = user;
   // We'll use the history to navigate the user
   // programmatically later on (we're not using it yet)
   const history = useHistory();
@@ -79,6 +79,13 @@ export const UserInfoPage = () => {
   return (
     <div className='content-container'>
       <h1>Info for {email}</h1>
+
+      {!isVerified && (
+        <div className='fail'>
+          {" "}
+          you won't able to make changs untile your verifiedddd your email.
+        </div>
+      )}
       {showSuccessMessage && (
         <div className='success'>Successfully saved user data!</div>
       )}

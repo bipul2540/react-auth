@@ -4,6 +4,7 @@ import { SignUpPage } from "./pages/SignUpPage";
 import { UserInfoPage } from "./pages/UserInfoPage";
 
 import { PrivatRoute } from "./auth/PrivateRoute";
+import { PleaseVerifyEmailPage } from "./pages/PleaseVerifyEmailPage";
 
 export const Routes = () => {
   return (
@@ -16,8 +17,11 @@ export const Routes = () => {
         <Route path='/login'>
           <LogInPage />
         </Route>
+        <Route path='/please-verify'>
+          <PleaseVerifyEmailPage />
+        </Route>
 
-        <Route path='/signup' >
+        <Route path='/signup'>
           <SignUpPage />
         </Route>
       </Switch>

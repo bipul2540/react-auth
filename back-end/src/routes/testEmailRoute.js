@@ -13,30 +13,23 @@ export const testEmailRoute = {
       const { _id, email } = req.body;
       //   const currentUrl = "https://localhost:5000/";
 
-      const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-          user: "robert.david2540@gmail.com",
-          pass: "Robertdavid@2540",
-        },
-      });
+      // const transporter = nodemailer.createTransport({
+      //   service: "gmail",
+      //   auth: {
+      //     user: "robert.david2540@gmail.com",
+      //     pass: "cwwmecgtyaxcbvlh",
+      //   },
+      // });
 
       const details = {
-        from: "bipulkumar73520@gmail.com",
-        to: "robert.david2540@gmail.com",
+        from: "robert.david2540@gmail.com",
+        to: "bipulkumar73520@gmail.com",
         subject: "Does this work",
         text: "yes it works",
       };
+      sendEmail(details);
 
-      transporter.sendMail(details, (err, info) => {
-        if (err) {
-          console.log(err);
-        } else {
-          res.sendStatus(200);
-        }
-      });
     } catch (err) {
-      console.log(err);
       res.sendStatus(500);
     }
   },
