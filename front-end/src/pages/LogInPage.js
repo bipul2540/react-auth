@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { useHistory } from "react-router-dom";
 import axios from "axios";
@@ -11,7 +11,23 @@ export const LogInPage = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [googleOauthUrl, setGoogleOauthUrl] = useState("");
+
   const history = useHistory();
+
+  useEffect(() => {
+    const loadOauthUrl = async () => {
+      try {
+        const response = await axios.get("/auth/google/url");
+        const { url } = response.data;
+        setGoogleOauthUrl(url);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    loadOauthUrl();
+  }, []);
 
   const OnLogInClicked = async () => {
     const response = await axios.post("/api/login", {
@@ -51,6 +67,12 @@ export const LogInPage = () => {
       </button>
       <button onClick={() => history.push("/signup")}>
         Don't have an account? sign Up
+      </button>
+
+      <button
+        disabled={!googleOauthUrl}
+        onClick={() => (window.location.href = googleOauthUrl)}>
+        Log in with Google
       </button>
     </div>
   );
