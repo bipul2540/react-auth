@@ -42,7 +42,7 @@ export const signUpRoute = {
         from: "robert.david2540@gmail.com",
         to: email,
         subject: "please verify your email",
-        text: `Thanks for signing up to verify your email click here: http:localhost:3000/verify-email/${verificationString}`,
+        text: `Thanks for signing up to verify your email click here: http://localhost:3000/verify-email/${verificationString}`,
       });
     } catch (err) {
       if (err) {

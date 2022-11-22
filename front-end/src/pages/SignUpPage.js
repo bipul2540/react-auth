@@ -5,7 +5,7 @@ import { useToken } from "../auth/useToken";
 import axios from "axios";
 
 export const SignUpPage = () => {
-  const [token, setToken] = useToken();
+  const [, setToken] = useToken();
 
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
