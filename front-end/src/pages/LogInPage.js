@@ -28,9 +28,10 @@ export const LogInPage = () => {
   useEffect(() => {
     const loadOauthUrl = async () => {
       try {
-        const response = await axios.get("/auth/google/url");
+        const response = await axios.get("auth/google/url");
         const { url } = response.data;
         setGoogleOauthUrl(url);
+        console.log(googleOauthUrl);
       } catch (e) {
         console.log(e);
       }

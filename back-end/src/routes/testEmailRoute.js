@@ -11,15 +11,6 @@ export const testEmailRoute = {
   handler: async (req, res) => {
     try {
       const { _id, email } = req.body;
-      //   const currentUrl = "https://localhost:5000/";
-
-      // const transporter = nodemailer.createTransport({
-      //   service: "gmail",
-      //   auth: {
-      //     user: "robert.david2540@gmail.com",
-      //     pass: "cwwmecgtyaxcbvlh",
-      //   },
-      // });
 
       const details = {
         from: "robert.david2540@gmail.com",
